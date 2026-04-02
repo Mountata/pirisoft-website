@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "Pirisoft Contact <onboarding@resend.dev>",
       to:   ["renelegrandmountata@gmail.com"],
-      replyTo: email,
+      reply_to: email,
       subject: `Nouveau message de ${name} — Pirisoft`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

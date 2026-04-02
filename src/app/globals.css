@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary:       #185FA5;
+  --primary-dark:  #0D3D6E;
+  --primary-light: #EBF4FF;
+  --dark:          #0D1B2A;
+  --gray:          #64748b;
+  --border:        #E2EAF4;
+  --bg-alt:        #F7FAFF;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--dark);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: 'Syne', system-ui, sans-serif;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ── Selection ── */
+::selection { background: var(--primary-light); color: var(--primary-dark); }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1);   opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.6; }
+}
+
+.animate-fade-up  { animation: fadeUp 0.65s cubic-bezier(.16,1,.3,1) forwards; }
+.animate-fade-in  { animation: fadeIn 0.5s ease forwards; }
+.pulse-dot        { animation: pulse-dot 2s infinite; }
+
+/* Staggered delays */
+.delay-100 { animation-delay: 0.1s; opacity: 0; }
+.delay-200 { animation-delay: 0.2s; opacity: 0; }
+.delay-300 { animation-delay: 0.3s; opacity: 0; }
+.delay-400 { animation-delay: 0.4s; opacity: 0; }
+.delay-500 { animation-delay: 0.5s; opacity: 0; }
+.delay-600 { animation-delay: 0.6s; opacity: 0; }
+
+/* ── Section helpers ── */
+.section-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+/* ── Cards hover ── */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(24, 95, 165, 0.13);
+}
+
+/* ── Tag pills ── */
+.tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  display: inline-block;
+}
+.tag-blue   { background: #EBF4FF; color: #185FA5; }
+.tag-green  { background: #EAF6EF; color: #1a7a4a; }
+.tag-purple { background: #F0EEFF; color: #5b3eb5; }
+.tag-red    { background: #FFF0EE; color: #c0392b; }
+.tag-amber  { background: #FFF8E7; color: #b07d00; }
+.tag-wip    { background: #FFF3CD; color: #856404; font-size: 10px; }
